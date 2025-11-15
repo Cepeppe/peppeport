@@ -596,3 +596,55 @@ footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* --- NAVBAR MOBILE (max 600px) ---------------------------------------- */
+
+@media (max-width: 600px) {
+  .top-bar {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    align-items: flex-start;
+    row-gap: 0.4rem;
+    padding: 0.6rem 1.1rem;
+  }
+
+  .logo-area {
+    justify-content: flex-start;
+  }
+
+  .main-nav {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0.35rem;
+    padding-bottom: 0.25rem;
+    margin: 0 -0.3rem;
+  }
+
+  .main-nav::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .main-nav::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .main-nav::-webkit-scrollbar-thumb {
+    background: #cbd5f5;
+    border-radius: 999px;
+  }
+
+  .nav-link {
+    white-space: nowrap;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .nav-note {
+    display: none;
+  }
+
+  .lang-switch {
+    justify-content: flex-start;
+  }
+}
