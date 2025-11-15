@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Giuseppe Sorgentone • Portfolio</title>
+  <meta name="description" content="Portfolio di Giuseppe Sorgentone - IT Consultant, backend, data & systems.">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="logo-area">
+      <span class="logo-dot"></span>
+      <span class="logo-text">Giuseppe Sorgentone</span>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-link nav-link--active" data-section="about">
+        <span class="lang lang-en">About</span>
+        <span class="lang lang-it">About</span>
+      </button>
+      <button class="nav-link" data-section="projects">
+        <span class="lang lang-en">Projects</span>
+        <span class="lang lang-it">Progetti</span>
+      </button>
+      <button class="nav-link" data-section="suggested">
+        <span class="lang lang-en">Suggested contents</span>
+        <span class="lang lang-it">Contenuti suggeriti</span>
+      </button>
+      <button class="nav-link" data-section="onepiece">
+        <span class="lang lang-en">One Piece</span>
+        <span class="lang lang-it">One Piece</span>
+      </button>
+      <button class="nav-link" data-section="playme">
+        <span class="lang lang-en">Play me</span>
+        <span class="lang lang-it">Play me</span>
+      </button>
+      <button class="nav-link" data-section="contacts">
+        <span class="lang lang-en">Contacts</span>
+        <span class="lang lang-it">Contatti</span>
+      </button>
+    </nav>
+
+    <div class="lang-switch" aria-label="Language selector">
+      <button class="lang-btn" data-lang-btn="it">
+        <img src="assets/icons/flag_it.PNG" class="flag-img" alt="Italian flag" />
+        <span class="lang-code">ITA</span>
+      </button>
+      <button class="lang-btn lang-btn--active" data-lang-btn="en">
+        <img src="assets/icons/flag_en.PNG" class="flag-img" alt="English flag" />
+        <span class="lang-code">ENG</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ABOUT -->
+    <section id="about" class="section section--about">
+      <div class="section-inner">
+        <div class="about-text">
+          <h1 class="section-title">
+            Giuseppe Sorgentone
+          </h1>
+
+          <p class="role">
+            <span class="lang lang-en">IT Consultant · Backend &amp; Data Engineering</span>
+            <span class="lang lang-it">IT Consultant · Backend &amp; Data Engineering</span>
+          </p>
+
+          <div class="about-contact-line">
+            <span class="contact-icon">✉️</span>
+            <a href="mailto:giuseppe.sorgentone.mail@gmail.com">
+              giuseppe.sorgentone.mail@gmail.com
+            </a>
+          </div>
+
+          <div class="about-meta">
+            <div>
+              <div class="meta-label">
+                <span class="lang lang-en">Current role</span>
+                <span class="lang lang-it">Ruolo attuale</span>
+              </div>
+              <div class="meta-value">
+                IT Consultant @ Technology Reply · Bologna
+              </div>
+            </div>
+
+            <div>
+              <div class="meta-label">
+                <span class="lang lang-en">Education</span>
+                <span class="lang lang-it">Formazione</span>
+              </div>
+              <div class="meta-value lang lang-en">
+                MSc &amp; BSc in Computer Engineering · Alma Mater Studiorum - Università di Bologna
+              </div>
+              <div class="meta-value lang lang-it">
+                Laurea magistrale e triennale in Ingegneria Informatica · Alma Mater Studiorum - Università di Bologna
+              </div>
+            </div>
+
+            <div>
+              <div class="meta-label">
+                <span class="lang lang-en">Languages</span>
+                <span class="lang lang-it">Lingue</span>
+              </div>
+              <div class="meta-value">
+                Italian (native), English (C2), Spanish (A2)
+              </div>
+            </div>
+          </div>
+
+          <p class="text-placeholder lang lang-en">
+            bio
+          </p>
+          <p class="text-placeholder lang lang-it">
+            bio
+          </p>
+
+          <div class="skills">
+            <div class="meta-label">
+              <span class="lang lang-en">Main tech</span>
+              <span class="lang lang-it">Tecnologie principali</span>
+            </div>
+            <div class="skill-chips">
+            
+              <span class="skill-chip">
+                <img src="assets/icons/java_icon.PNG" class="chip-icon" alt="Java icon" />
+                Java · Quarkus · Hibernate
+              </span>
+              <span class="skill-chip">
+                <img src="assets/icons/python_icon.PNG" class="chip-icon" alt="Python icon" />
+                Python · PySpark · Apache Spark
+              </span>
+              <span class="skill-chip">
+                <img src="assets/icons/c_icon.PNG" class="chip-icon" alt="C icon" />
+                C
+              </span>
+              <span class="skill-chip">
+                <img src="assets/icons/go_icon.PNG" class="chip-icon" alt="Go icon" />
+                Go
+              </span>
+              <span class="skill-chip">
+                <img src="assets/icons/sql_icon.PNG" class="chip-icon" alt="SQL icon" />
+                SQL · Oracle DB
+              </span>
+              <span class="skill-chip">
+                <img src="assets/icons/linux_icon.PNG" class="chip-icon" alt="Linux icon" />
+                Linux
+              </span>
+              <span class="skill-chip">
+                <img src="assets/icons/git_icon.PNG" class="chip-icon" alt="Git icon" />
+                Git
+              </span>
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <a class="btn btn--ghost btn--icon" href="assets/CV_Giuseppe_Sorgentone.pdf" target="_blank" rel="noopener">
+              <span class="icon-circle">CV</span>
+              <span class="lang lang-en">Download CV (PDF)</span>
+              <span class="lang lang-it">Scarica il CV (PDF)</span>
+            </a>
+
+            <!-- icona GitHub -->
+            <a class="btn btn--ghost btn--icon" href="https://github.com/Cepeppe" target="_blank" rel="noopener">
+              <img src="assets/icons/github_icon.PNG" class="icon-img" alt="GitHub icon" />
+              <span>GitHub</span>
+            </a>
+
+            <!-- icona LinkedIn -->
+            <a class="btn btn--ghost btn--icon" href="https://www.linkedin.com/in/giuseppe-sorgentone-44320722b/" target="_blank" rel="noopener">
+              <img src="assets/icons/linkedin_icon.PNG" class="icon-img" alt="LinkedIn icon" />
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="about-photo">
+          <div class="photo-card">
+            <div class="photo-circle">
+              <img src="assets/profile_placeholder.jpeg" alt="Profile placeholder" class="photo-img" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section section--projects">
+      <div class="section-inner">
+        <h2 class="section-title">
+          <span class="lang lang-en">Projects</span>
+          <span class="lang lang-it">Progetti</span>
+        </h2>
+
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-meta">SIDE PROJECT</div>
+            <h3 class="card-title">One Piece ChapterOut Telegram bot</h3>
+
+            <p class="card-body lang lang-en">
+              Telegram bot that sends a notification with the link to the new One Piece
+              chapter as soon as it is released. This portfolio has a dedicated
+              <strong>One Piece</strong> section with more details.
+            </p>
+            <p class="card-body lang lang-it">
+              Bot Telegram che invia una notifica con il link al nuovo capitolo di One Piece
+              non appena esce. In questo portfolio trovi una sezione dedicata
+              <strong>One Piece</strong> con maggiori dettagli.
+            </p>
+
+            <div class="card-footer">
+                <span class="tag">Python</span>
+                <span class="tag">Telegram Bot API</span>
+
+                <a class="btn btn--ghost btn--tiny"
+                    href="https://t.me/OPChapterOUT_bot"
+                    target="_blank"
+                    rel="noopener">
+                    Visit bot
+                </a>
+
+                <button class="btn btn--ghost btn--tiny" data-section="onepiece">
+                    <span class="lang lang-en">Open One Piece section</span>
+                    <span class="lang lang-it">Apri sezione One Piece</span>
+                </button>
+            </div>
+          </article>
+
+          <!-- apca-rest-client -->
+          <article class="card">
+            <div class="card-meta">JAVA · API CLIENT</div>
+            <h3 class="card-title">Alpaca REST Client</h3>
+
+            <p class="card-body lang lang-en">
+              Unofficial Java client for the Alpaca REST APIs (Trading, Market Data, Broker).
+              Focused on a clean object model, type-safe requests and an extensible design for
+              algorithmic trading integrations.
+            </p>
+            <p class="card-body lang lang-it">
+              Client Java non ufficiale per le API REST di Alpaca (Trading, Market Data, Broker),
+              con modello a oggetti pulito e design estendibile per integrazioni di trading
+              algoritmico.
+            </p>
+
+            <div class="card-footer">
+              <span class="tag">Java</span>
+              <span class="tag">REST</span>
+              <a class="btn btn--ghost btn--tiny" href="https://github.com/Cepeppe/apca-rest-client" target="_blank" rel="noopener">
+                GitHub repo
+              </a>
+            </div>
+          </article>
+
+          <!-- criminal-geoprofiler -->
+          <article class="card">
+            <div class="card-meta">WEBAPP · GEOANALYSIS</div>
+            <h3 class="card-title">Criminal Geoprofiler</h3>
+
+            <p class="card-body lang lang-en">
+              100% client-side web app to experiment with criminal geoprofiling techniques on
+              an interactive map. Lets you place events and compute likelihood surfaces with
+              methods like Rossmo/CGT, Gaussian KDE, Mean Center and Journey-to-crime, then
+              visualise them as heatmaps.
+            </p>
+            <p class="card-body lang lang-it">
+              WebApp completamente client-side per sperimentare tecniche di geoprofilazione
+              criminale su mappa interattiva. Permette di inserire eventi e calcolare superfici
+              di verosimiglianza con metodi come Rossmo/CGT, KDE gaussiana, centro di gravità
+              e Journey-to-crime, visualizzandole come heatmap.
+            </p>
+
+            <div class="card-footer">
+              <span class="tag">Geo</span>
+              <span class="tag">JavaScript</span>
+              <a class="btn btn--ghost btn--tiny" href="https://github.com/Cepeppe/criminal-geoprofiler" target="_blank" rel="noopener">
+                GitHub repo
+              </a>
+            </div>
+          </article>
+
+          <!-- c-lib -->
+          <article class="card">
+            <div class="card-meta">LIBRARY · C</div>
+            <h3 class="card-title">c-lib</h3>
+
+            <p class="card-body lang lang-en">
+              C library implementing classic data structures: linked lists,
+              hashmaps, binary search trees, matrices and common operations. Includes small
+              demos and tests.
+            </p>
+            <p class="card-body lang lang-it">
+              Libreria C che implementa strutture dati classiche: liste collegate,
+              hashmap, alberi binari di ricerca, matrici e relative operazioni. Include piccoli
+              esempi e test.
+            </p>
+
+            <div class="card-footer">
+              <span class="tag">C</span>
+              <span class="tag">Data structures</span>
+              <a class="btn btn--ghost btn--tiny" href="https://github.com/Cepeppe/c-lib" target="_blank" rel="noopener">
+                GitHub repo
+              </a>
+            </div>
+          </article>
+
+          <!-- redis-go-clone -->
+          <article class="card">
+            <div class="card-meta">GO · SYSTEMS</div>
+            <h3 class="card-title">Redis Go Clone</h3>
+
+            <p class="card-body lang lang-en">
+              Minimal Redis-style in-memory key–value store written in Go, with a small TCP
+              server and CLI client. Supports a subset of Redis commands and a simple text
+              protocol to explore client/server design.
+            </p>
+            <p class="card-body lang lang-it">
+              Clone minimale in Go di un key–value store in-memory stile Redis, con un piccolo
+              server TCP e client a riga di comando. Supporta un sottoinsieme di comandi Redis
+              e un semplice protocollo testuale, utile per esplorare il design client/server.
+            </p>
+
+            <div class="card-footer">
+              <span class="tag">Go</span>
+              <span class="tag">Key–value store</span>
+              <a class="btn btn--ghost btn--tiny" href="https://github.com/Cepeppe/redis-go-clone" target="_blank" rel="noopener">
+                GitHub repo
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUGGESTED CONTENTS -->
+    <section id="suggested" class="section section--suggested">
+      <div class="section-inner">
+        <h2 class="section-title">
+          <span class="lang lang-en">Suggested contents</span>
+          <span class="lang lang-it">Contenuti suggeriti</span>
+        </h2>
+
+        <div class="video-scroller" aria-label="Suggested YouTube videos">
+          <!-- VIDEO -->
+          <article class="video-card">
+            <div class="video-frame">
+              <!-- embed standard; se YouTube mostra Errore 153, il link sotto apre il video -->
+              <iframe src="https://www.youtube.com/embed/-UiUcXBJ7pg"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen></iframe>
+            </div>
+            <p class="video-caption">
+              <span class="lang lang-en">Video #1 · YouTube embed</span>
+              <span class="lang lang-it">Video #1 · embed YouTube</span>
+              &nbsp;·
+              <a href="https://www.youtube.com/watch?v=-UiUcXBJ7pg" target="_blank" rel="noopener">
+                Open on YouTube
+              </a>
+            </p>
+          </article>
+
+          <article class="video-card">
+            <div class="video-frame">
+              <!-- embed standard; se YouTube mostra Errore 153, il link sotto apre il video -->
+              <iframe width="560" 
+                      height="315" 
+                      src="https://www.youtube.com/embed/X6aDS_cYe-o?si=O1pK_29_hIRy5wJO&amp;controls=0" 
+                      title="YouTube video player" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                      referrerpolicy="strict-origin-when-cross-origin" 
+                      allowfullscreen></iframe>
+            </div>
+            <p class="video-caption">
+              <span class="lang lang-en">Video #1 · YouTube embed</span>
+              <span class="lang lang-it">Video #1 · embed YouTube</span>
+              &nbsp;·
+              <a href="https://www.youtube.com/watch?v=-UiUcXBJ7pg" target="_blank" rel="noopener">
+                Open on YouTube
+              </a>
+            </p>
+          </article>
+
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ONE PIECE -->
+    <section id="onepiece" class="section section--onepiece">
+      <div class="section-inner">
+        <h2 class="section-title">
+          One Piece
+        </h2>
+
+        <div class="cards-grid">
+          <!-- Bot subsection -->
+          <article class="card">
+            <div class="card-meta">TELEGRAM BOT</div>
+            <h3 class="card-title lang lang-en">One Piece Chapter OUT Telegram bot</h3>
+            <h3 class="card-title lang lang-it">Bot Telegram One Piece Chapter OUT</h3>
+            <br>
+            <p class="card-body lang lang-en">
+              Short intro to the bot I created that sends a Telegram notification with
+              the link to the new chapter when it comes out.
+            </p>
+            <p class="card-body lang lang-it">
+              Breve intro al bot che ho creato per ricevere una notifica Telegram con il
+              link al nuovo capitolo quando esce.
+            </p>
+
+            <div class="card-footer">
+                <span class="tag">Python</span>
+                <span class="tag">Telegram Bot API</span>
+
+                <a class="btn btn--ghost btn--tiny"
+                    href="https://t.me/OPChapterOUT_bot"
+                    target="_blank"
+                    rel="noopener">
+                    Visit bot
+                </a>
+            </div>
+          </article>
+
+          <!-- Personal theories subsection -->
+          <article class="card">
+            <div class="card-meta">PERSONAL NOTES</div>
+            <h3 class="card-title lang lang-en">One Piece personal theories</h3>
+            <h3 class="card-title lang lang-it">Teorie personali su One Piece</h3>
+
+            <div class="card-footer">
+              <span class="text-muted small">
+                <span class="lang lang-en">Coming soon</span>
+                <span class="lang lang-it">In arrivo</span>
+              </span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY ME -->
+    <section id="playme" class="section section--play">
+      <div class="section-inner play-layout">
+        <div>
+          <h2 class="section-title">
+            <span class="lang lang-en">Play me</span>
+            <span class="lang lang-it">Play me</span>
+          </h2>
+
+          <p class="text-muted lang lang-en">
+            If you like chess, challenge me to a game on Chess.com.
+          </p>
+          <p class="text-muted lang lang-it">
+            Se ti piacciono gli scacchi, sfidami a una
+            partita su Chess.com.
+          </p>
+          <br>
+          <p class="lang lang-en">
+            Wanna play rapid?
+          </p>
+          <p class="lang lang-it">
+            Vuoi giocare rapid?
+          </p>
+        </div>
+
+        <aside class="card">
+          <div class="card-meta">CHESS.COM</div>
+          <h3 class="card-title">
+            <!-- icona scacchi -->
+            <img src="assets/icons/chess_icon.PNG" class="icon-img" alt="Chess icon" />
+            &nbsp;Profile
+          </h3>
+          <p class="card-body">
+            <a href="https://www.chess.com/member/cepeppe" target="_blank" rel="noopener">
+              https://www.chess.com/member/cepeppe
+            </a>
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts" class="section section--contacts">
+      <div class="section-inner">
+        <h2 class="section-title">
+          <span class="lang lang-en">Contacts</span>
+          <span class="lang lang-it">Contatti</span>
+        </h2>
+
+        <div class="cards-grid">
+          <article class="card">
+            <h3 class="card-title lang lang-en">Direct contacts</h3>
+            <h3 class="card-title lang lang-it">Contatti diretti</h3>
+
+            <ul class="contact-list">
+              <li>
+                <div class="contact-label">Email</div>
+                <div class="contact-value">
+                  <span class="contact-icon">✉️</span>
+                  <a href="mailto:giuseppe.sorgentone.mail@gmail.com">
+                    giuseppe.sorgentone.mail@gmail.com
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="contact-label">
+                  <span class="lang lang-en">Based in</span>
+                  <span class="lang lang-it">Sede</span>
+                </div>
+                <div class="contact-value">
+                  Bologna &amp; Roseto degli Abruzzi (TE), Italy 
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 class="card-title">Links</h3>
+
+            <ul class="contact-list">
+              <li>
+                <div class="contact-label">GitHub</div>
+                <div class="contact-value">
+                  <img src="assets/icons/github_icon.PNG" class="icon-img" alt="GitHub icon" />
+                  <a href="https://github.com/Cepeppe" target="_blank" rel="noopener">
+                    github.com/Cepeppe
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="contact-label">LinkedIn</div>
+                <div class="contact-value">
+                  <img src="assets/icons/linkedin_icon.PNG" class="icon-img" alt="LinkedIn icon" />
+                  <a href="https://www.linkedin.com/in/giuseppe-sorgentone-44320722b/" target="_blank" rel="noopener">
+                    linkedin.com/in/giuseppe-sorgentone-44320722b
+                  </a>
+                </div>
+              </li>
+              <li>
+                <div class="contact-label">
+                  <span class="lang lang-en">CV</span>
+                  <span class="lang lang-it">Curriculum</span>
+                </div>
+                <div class="contact-value">
+                  <a href="assets/CV_Giuseppe_Sorgentone.pdf" target="_blank" rel="noopener">
+                    Download CV (PDF)
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>
+      © <span id="year"></span> Giuseppe Sorgentone · Built with HTML, CSS &amp; JavaScript.
+    </small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

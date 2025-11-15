@@ -1,2 +1,2 @@
 # peppeport
-Personal portolio single page web-app
+Personal portfolio single page web-app
