@@ -4,28 +4,71 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Giuseppe Sorgentone • Portfolio</title>
-  <meta name="description" content="Portfolio di Giuseppe Sorgentone - IT Consultant, backend, data & systems.">
+  <meta name="description" content="Portfolio di Giuseppe Sorgentone - Backend &amp; Data Engineer, FinTech &amp; Enterprise Systems Integration Consultant." />
+  <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#080b14" media="(prefers-color-scheme: dark)" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Giuseppe Sorgentone • Portfolio" />
+  <meta property="og:description" content="Backend &amp; Data Engineer · FinTech &amp; Enterprise Systems Integration Consultant" />
+  <meta property="og:image" content="./assets/profile_placeholder.jpeg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://i.ytimg.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- theme applied before first paint to avoid a flash -->
+  <script>
+    (function () {
+      // reveal animations only apply when JS is running, so the page is
+      // never left blank if the script fails or is blocked
+      document.documentElement.classList.add("js");
+      try {
+        var saved = localStorage.getItem("preferred-theme");
+        var dark = saved ? saved === "dark"
+          : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+        var lang = localStorage.getItem("preferred-lang");
+        if (lang === "it" || lang === "en") {
+          document.documentElement.setAttribute("data-lang", lang);
+          document.documentElement.lang = lang;
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1WP06M84T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W1WP06M84T');
+  </script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-W1WP06M84T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-W1WP06M84T');
-  
-</script>
 <body>
-  <header class="top-bar">
-    <div class="logo-area">
-      <span class="logo-dot"></span>
-      <span class="logo-text">Giuseppe Sorgentone</span>
-    </div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-    <nav class="main-nav" aria-label="Main navigation">
+  <a class="skip-link" href="#about">
+    <span class="lang lang-en">Skip to content</span>
+    <span class="lang lang-it">Vai al contenuto</span>
+  </a>
+
+  <header class="top-bar" id="topBar">
+    <button class="logo-area" data-section="about" aria-label="Giuseppe Sorgentone — back to top">
+      <span class="logo-mark" aria-hidden="true">GS</span>
+      <span class="logo-text">
+        <span class="logo-name">Giuseppe Sorgentone</span>
+        <span class="logo-role">Backend &amp; Data</span>
+      </span>
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <span class="nav-pill" id="navPill" aria-hidden="true"></span>
       <button class="nav-link nav-link--active" data-section="about">
         <span class="lang lang-en">About</span>
         <span class="lang lang-it">About</span>
@@ -35,8 +78,8 @@
         <span class="lang lang-it">Progetti</span>
       </button>
       <button class="nav-link" data-section="suggested">
-        <span class="lang lang-en">Suggested contents</span>
-        <span class="lang lang-it">Contenuti suggeriti</span>
+        <span class="lang lang-en">Suggested</span>
+        <span class="lang lang-it">Contenuti</span>
       </button>
       <button class="nav-link" data-section="onepiece">
         <span class="lang lang-en">One Piece</span>
@@ -52,41 +95,99 @@
       </button>
     </nav>
 
-    <div class="lang-switch" aria-label="Language selector">
-      <button class="lang-btn" data-lang-btn="it">
-        <img src="./assets/icons/flag_it.png" class="flag-img" alt="Italian flag" />
-        <span class="lang-code">ITA</span>
+    <div class="nav-actions">
+      <div class="lang-switch" aria-label="Language selector">
+        <span class="lang-thumb" id="langThumb" aria-hidden="true"></span>
+        <button class="lang-btn" data-lang-btn="it" aria-label="Passa all'italiano">
+          <img src="./assets/icons/flag_it.png" class="flag-img" alt="" />
+          <span class="lang-code">ITA</span>
+        </button>
+        <button class="lang-btn lang-btn--active" data-lang-btn="en" aria-label="Switch to English">
+          <img src="./assets/icons/flag_en.png" class="flag-img" alt="" />
+          <span class="lang-code">ENG</span>
+        </button>
+      </div>
+
+      <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" />
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+        </svg>
       </button>
-      <button class="lang-btn lang-btn--active" data-lang-btn="en">
-        <img src="./assets/icons/flag_en.png" class="flag-img" alt="English flag" />
-        <span class="lang-code">ENG</span>
+
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </button>
     </div>
   </header>
 
-  <main>
+  <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <button class="nav-link nav-link--active" data-section="about">
+      <span class="lang lang-en">About</span><span class="lang lang-it">About</span>
+    </button>
+    <button class="nav-link" data-section="projects">
+      <span class="lang lang-en">Projects</span><span class="lang lang-it">Progetti</span>
+    </button>
+    <button class="nav-link" data-section="suggested">
+      <span class="lang lang-en">Suggested contents</span><span class="lang lang-it">Contenuti suggeriti</span>
+    </button>
+    <button class="nav-link" data-section="onepiece">
+      <span class="lang lang-en">One Piece</span><span class="lang lang-it">One Piece</span>
+    </button>
+    <button class="nav-link" data-section="playme">
+      <span class="lang lang-en">Play me</span><span class="lang lang-it">Play me</span>
+    </button>
+    <button class="nav-link" data-section="contacts">
+      <span class="lang lang-en">Contacts</span><span class="lang lang-it">Contatti</span>
+    </button>
+  </nav>
+
+  <main id="main">
     <!-- ABOUT -->
     <section id="about" class="section section--about">
       <div class="section-inner">
         <div class="about-text">
-          <h1 class="section-title">
+          <span class="status-pill reveal">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span class="lang lang-en">Bologna, Italy</span>
+            <span class="lang lang-it">Bologna, Italia</span>
+            <span class="status-clock" id="localClock" hidden></span>
+          </span>
+
+          <h1 class="hero-title reveal" style="--reveal-delay: .05s">
             Giuseppe Sorgentone
           </h1>
 
-          <p class="role">
-            <span class="lang lang-en">Backend &amp; Data Engineer | FinTech &amp; Enterprise Systems Integration Consultant</span>
-            <span class="lang lang-it">Backend &amp; Data Engineer | FinTech &amp; Enterprise Systems Integration Consultant</span>
+          <p class="role reveal" style="--reveal-delay: .1s">
+            <span class="role-line">Backend &amp; Data Engineer</span>
+            <span class="role-line">FinTech &amp; Enterprise Systems Integration Consultant</span>
           </p>
 
-          <div class="about-contact-line">
-            <span class="contact-icon">✉️</span>
+          <div class="about-contact-line reveal" style="--reveal-delay: .15s">
+            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2.5" y="4.5" width="19" height="15" rx="3" />
+              <path d="m3.5 7 7.3 5.2a2 2 0 0 0 2.4 0L20.5 7" />
+            </svg>
             <a href="mailto:giuseppe.sorgentone.mail@gmail.com">
               giuseppe.sorgentone.mail@gmail.com
             </a>
+            <button class="copy-btn" id="copyEmail" data-copy="giuseppe.sorgentone.mail@gmail.com" aria-label="Copy email address">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="12" height="12" rx="2.5" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+            </button>
           </div>
 
-          <div class="about-meta">
-            <div>
+          <div class="about-meta reveal" style="--reveal-delay: .2s">
+            <div class="meta-card">
               <div class="meta-label">
                 <span class="lang lang-en">Education</span>
                 <span class="lang lang-it">Formazione</span>
@@ -99,122 +200,165 @@
               </div>
             </div>
 
-            <div>
+            <div class="meta-card">
               <div class="meta-label">
                 <span class="lang lang-en">Languages</span>
                 <span class="lang lang-it">Lingue</span>
               </div>
               <div class="meta-value">
-                Italian (native), English (C1), Spanish (A2)
+                Italian (native), English (C2), Spanish (A2)
               </div>
             </div>
           </div>
 
-          <p class="text-placeholder lang lang-en">
-            bio
-          </p>
-          <p class="text-placeholder lang lang-it">
-            bio
-          </p>
-
-          <div class="skills">
+          <div class="skills reveal" style="--reveal-delay: .25s">
             <div class="meta-label">
               <span class="lang lang-en">Main tech</span>
               <span class="lang lang-it">Tecnologie principali</span>
             </div>
             <div class="skill-chips">
-            
               <span class="skill-chip">
-                <img src="./assets/icons/java_icon.png" class="chip-icon" alt="Java icon" />
+                <img src="./assets/icons/java_icon.png" class="chip-icon" alt="" loading="lazy" />
                 Java · Quarkus · Hibernate
               </span>
               <span class="skill-chip">
-                <img src="./assets/icons/python_icon.png" class="chip-icon" alt="Python icon" />
-                Python · PySpark · Apache Spark
+                <img src="./assets/icons/python_icon.png" class="chip-icon" alt="" loading="lazy" />
+                Python · PySpark
               </span>
               <span class="skill-chip">
-                <img src="./assets/icons/c_icon.png" class="chip-icon" alt="C icon" />
-                C
-              </span>
-              <span class="skill-chip">
-                <img src="./assets/icons/go_icon.png" class="chip-icon" alt="Go icon" />
+                <img src="./assets/icons/go_icon.png" class="chip-icon" alt="" loading="lazy" />
                 Go
               </span>
               <span class="skill-chip">
-                <img src="./assets/icons/sql_icon.png" class="chip-icon" alt="SQL icon" />
+                <img src="./assets/icons/nextjs_icon.png" class="chip-icon chip-icon--invert-dark" alt="" loading="lazy" />
+                Next.js
+              </span>
+              <span class="skill-chip">
+                <img src="./assets/icons/redis_icon.png" class="chip-icon" alt="" loading="lazy" />
+                Redis
+              </span>
+              <span class="skill-chip">
+                <img src="./assets/icons/sql_icon.png" class="chip-icon" alt="" loading="lazy" />
                 SQL · Oracle DB
               </span>
               <span class="skill-chip">
-                <img src="./assets/icons/databricks_icon.png" class="chip-icon" alt="Azure Databricks icon" />
+                <img src="./assets/icons/postgreSQL_icon.png" class="chip-icon" alt="" loading="lazy" />
+                PostgreSQL
+              </span>
+              <span class="skill-chip">
+                <img src="./assets/icons/databricks_icon.png" class="chip-icon" alt="" loading="lazy" />
                 Azure Databricks
               </span>
               <span class="skill-chip">
-                <img src="./assets/icons/palantir_foundry_icon.png" class="chip-icon" alt="Palantir Foundry icon" />
+                <img src="./assets/icons/palantir_foundry_icon.png" class="chip-icon chip-icon--invert-dark" alt="" loading="lazy" />
                 Palantir Foundry
               </span>
               <span class="skill-chip">
-                <img src="./assets/icons/linux_icon.png" class="chip-icon" alt="Linux icon" />
+                <img src="./assets/icons/linux_icon.png" class="chip-icon" alt="" loading="lazy" />
                 Linux
               </span>
               <span class="skill-chip">
-                <img src="./assets/icons/git_icon.png" class="chip-icon" alt="Git icon" />
+                <img src="./assets/icons/git_icon.png" class="chip-icon" alt="" loading="lazy" />
                 Git
               </span>
             </div>
           </div>
 
-          <div class="btn-row">
-            <a class="btn btn--ghost btn--icon" href="./assets/CV_Giuseppe_Sorgentone.pdf" target="_blank" rel="noopener">
-              <span class="icon-circle">CV</span>
+          <div class="btn-row reveal" style="--reveal-delay: .3s">
+            <a class="btn btn--primary" href="./assets/CV_Giuseppe_Sorgentone.pdf" target="_blank" rel="noopener">
+              <span class="icon-circle" aria-hidden="true">CV</span>
               <span class="lang lang-en">Download CV (PDF)</span>
               <span class="lang lang-it">Scarica il CV (PDF)</span>
             </a>
 
-            <!-- icona GitHub -->
-            <a class="btn btn--ghost btn--icon" href="https://github.com/Cepeppe" target="_blank" rel="noopener">
-              <img src="./assets/icons/github_icon.png" class="icon-img" alt="GitHub icon" />
+            <a class="btn btn--ghost" href="https://github.com/Cepeppe" target="_blank" rel="noopener">
+              <img src="./assets/icons/github_icon.png" class="icon-img" alt="" />
               <span>GitHub</span>
             </a>
 
-            <!-- icona LinkedIn -->
-            <a class="btn btn--ghost btn--icon" href="https://www.linkedin.com/in/giuseppe-sorgentone-44320722b/" target="_blank" rel="noopener">
-              <img src="./assets/icons/linkedin_icon.png" class="icon-img" alt="LinkedIn icon" />
+            <a class="btn btn--ghost" href="https://www.linkedin.com/in/giuseppe-sorgentone-44320722b/" target="_blank" rel="noopener">
+              <img src="./assets/icons/linkedin_icon.png" class="icon-img" alt="" />
               <span>LinkedIn</span>
             </a>
           </div>
         </div>
 
-        <div class="about-photo">
-          <div class="photo-card">
-            <div class="photo-circle">
-              <img src="./assets/profile_placeholder.jpeg" alt="Profile placeholder" class="photo-img" />
+        <div class="about-photo reveal" style="--reveal-delay: .12s">
+          <div class="photo-card" id="photoCard">
+            <div class="photo-circle" id="photoCircle">
+              <img src="./assets/profile_placeholder.jpeg" alt="Giuseppe Sorgentone" class="photo-img photo-img--main" />
+              <img src="./assets/angry-kitten.png" class="photo-img photo-img--alt" loading="lazy" aria-hidden="true"
+                   alt="An angry kitten wearing Luffy's straw hat in front of a laptop" />
             </div>
+
+            <button class="icon-btn photo-swap" id="photoSwap" type="button">
+              <svg class="icon-cat" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <ellipse cx="6.4" cy="9.4" rx="2.1" ry="2.7" />
+                <ellipse cx="11" cy="7.2" rx="2.2" ry="2.9" />
+                <ellipse cx="15.9" cy="8.4" rx="2.1" ry="2.7" />
+                <ellipse cx="19.6" cy="12.4" rx="1.9" ry="2.4" />
+                <path d="M11.4 12.6c2.6 0 5 1.9 5.7 4.3.5 1.7-.8 3.3-2.6 3.3-1 0-1.9-.3-3.1-.3s-2.1.3-3.1.3c-1.8 0-3.1-1.6-2.6-3.3.7-2.4 3.1-4.3 5.7-4.3Z" />
+              </svg>
+              <svg class="icon-person" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <circle cx="12" cy="7.6" r="4" />
+                <path d="M12 13.2c4.2 0 7.6 2.9 7.6 6.6v.7H4.4v-.7c0-3.7 3.4-6.6 7.6-6.6Z" />
+              </svg>
+              <span class="sr-only sr-cat">
+                <span class="lang lang-en">Show the angry kitten instead of the photo</span>
+                <span class="lang lang-it">Mostra il gattino arrabbiato al posto della foto</span>
+              </span>
+              <span class="sr-only sr-person">
+                <span class="lang lang-en">Show the profile photo again</span>
+                <span class="lang lang-it">Torna alla foto del profilo</span>
+              </span>
+            </button>
           </div>
         </div>
       </div>
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="section section--projects">
+    <section id="projects" class="section section--projects section--alt">
       <div class="section-inner">
-        <h2 class="section-title">
-          <span class="lang lang-en">Projects</span>
-          <span class="lang lang-it">Progetti</span>
-        </h2>
+        <div class="section-head reveal">
+          <div class="eyebrow">
+            <span class="lang lang-en">Selected work</span>
+            <span class="lang lang-it">Lavori selezionati</span>
+          </div>
+          <h2 class="section-title">
+            <span class="lang lang-en">Projects</span>
+            <span class="lang lang-it">Progetti</span>
+          </h2>
+          <p class="section-sub">
+            <span class="lang lang-en">Side projects around systems programming, data and integrations. Filter by technology.</span>
+            <span class="lang lang-it">Progetti personali tra systems programming, dati e integrazioni. Filtra per tecnologia.</span>
+          </p>
+        </div>
 
-        <div class="cards-grid">
+        <div class="filter-bar reveal" id="projectFilters" role="group" aria-label="Filter projects by technology">
+          <button class="filter-btn filter-btn--active" data-filter="all">
+            <span class="lang lang-en">All</span><span class="lang lang-it">Tutti</span>
+          </button>
+          <button class="filter-btn" data-filter="go">Go</button>
+          <button class="filter-btn" data-filter="java">Java</button>
+          <button class="filter-btn" data-filter="python">Python</button>
+          <button class="filter-btn" data-filter="c">C</button>
+          <button class="filter-btn" data-filter="js">JavaScript</button>
+        </div>
+
+        <div class="cards-grid" id="projectsGrid">
 
           <!-- emulators -->
-          <article class="card">
+          <article class="card reveal" data-tech="go">
             <div class="card-meta">SYSTEM EMULATORS</div>
             <h3 class="card-title">Emulators</h3>
 
             <p class="card-body lang lang-en">
-              Emulators of legacy architectures<br>
-              Emulated architecures: chip-8 (Go)
+              Emulators of legacy architectures.<br>
+              Emulated architectures: chip-8 (Go)
             </p>
             <p class="card-body lang lang-it">
-              Emulatori di architetture legacy<br>
+              Emulatori di architetture legacy.<br>
               Architetture emulate: chip-8 (Go)
             </p>
 
@@ -228,7 +372,7 @@
           </article>
 
           <!-- apca-rest-client -->
-          <article class="card">
+          <article class="card reveal" data-tech="java" style="--reveal-delay: .06s">
             <div class="card-meta">JAVA · API CLIENT</div>
             <h3 class="card-title">Alpaca REST Client</h3>
 
@@ -252,7 +396,8 @@
             </div>
           </article>
 
-          <article class="card">
+          <!-- one piece bot -->
+          <article class="card reveal" data-tech="python" style="--reveal-delay: .12s">
             <div class="card-meta">TELEGRAM BOT</div>
             <h3 class="card-title">One Piece ChapterOut Telegram bot</h3>
 
@@ -268,25 +413,22 @@
             </p>
 
             <div class="card-footer">
-                <span class="tag">Python</span>
-                <span class="tag">Telegram Bot API</span>
+              <span class="tag">Python</span>
+              <span class="tag">Telegram Bot API</span>
 
-                <a class="btn btn--ghost btn--tiny"
-                    href="https://t.me/OPChapterOUT_bot"
-                    target="_blank"
-                    rel="noopener">
-                    Visit bot
-                </a>
+              <a class="btn btn--ghost btn--tiny" href="https://t.me/OPChapterOUT_bot" target="_blank" rel="noopener">
+                Visit bot
+              </a>
 
-                <button class="btn btn--ghost btn--tiny" data-section="onepiece">
-                    <span class="lang lang-en">Open One Piece section</span>
-                    <span class="lang lang-it">Apri sezione One Piece</span>
-                </button>
+              <button class="btn btn--ghost btn--tiny" data-section="onepiece">
+                <span class="lang lang-en">One Piece section</span>
+                <span class="lang lang-it">Sezione One Piece</span>
+              </button>
             </div>
           </article>
 
           <!-- c-lib -->
-          <article class="card">
+          <article class="card reveal" data-tech="c" style="--reveal-delay: .18s">
             <div class="card-meta">LIBRARY · C</div>
             <h3 class="card-title">c-lib</h3>
 
@@ -311,7 +453,7 @@
           </article>
 
           <!-- redis-go-clone -->
-          <article class="card">
+          <article class="card reveal" data-tech="go" style="--reveal-delay: .24s">
             <div class="card-meta">GO · SYSTEMS</div>
             <h3 class="card-title">Redis Go Clone</h3>
 
@@ -336,7 +478,7 @@
           </article>
 
           <!-- criminal-geoprofiler -->
-          <article class="card">
+          <article class="card reveal" data-tech="js" style="--reveal-delay: .3s">
             <div class="card-meta">WEBAPP · GEOANALYSIS</div>
             <h3 class="card-title">Criminal Geoprofiler</h3>
 
@@ -368,166 +510,125 @@
     <!-- SUGGESTED CONTENTS -->
     <section id="suggested" class="section section--suggested">
       <div class="section-inner">
-        <h2 class="section-title">
-          <span class="lang lang-en">Suggested contents</span>
-          <span class="lang lang-it">Contenuti suggeriti</span>
-        </h2>
-
-        <div class="video-scroller" aria-label="Suggested YouTube videos">
-          <!-- VIDEO -->
-          <article class="video-card">
-            <div class="video-frame">
-              <!-- embed standard; se YouTube mostra Errore 153, il link sotto apre il video -->
-              <iframe src="https://www.youtube.com/embed/-UiUcXBJ7pg"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowfullscreen></iframe>
+        <div class="scroller-head reveal">
+          <div class="section-head" style="margin-bottom: 0">
+            <div class="eyebrow">
+              <span class="lang lang-en">Watchlist</span>
+              <span class="lang lang-it">Da guardare</span>
             </div>
-            <p class="video-caption">
-              <span class="lang lang-en">YouTube embed</span>
-              <span class="lang lang-it">YouTube embed</span>
-              &nbsp;·
-              <a href="https://www.youtube.com/watch?v=-UiUcXBJ7pg" target="_blank" rel="noopener">
-                Open on YouTube
-              </a>
+            <h2 class="section-title">
+              <span class="lang lang-en">Suggested contents</span>
+              <span class="lang lang-it">Contenuti suggeriti</span>
+            </h2>
+            <p class="section-sub">
+              <span class="lang lang-en">Talks and videos worth your time. Drag or use the arrows to browse.</span>
+              <span class="lang lang-it">Talk e video che vale la pena guardare. Trascina o usa le frecce per scorrere.</span>
             </p>
-          </article>
+          </div>
 
-          <article class="video-card">
-            <div class="video-frame">
-              <!-- embed standard; se YouTube mostra Errore 153, il link sotto apre il video -->
-              <iframe width="560" 
-                      height="315" 
-                      src="https://www.youtube.com/embed/0x3aRutVeQU?si=Lxkye3LLh-bTmIit" 
-                      title="YouTube video player" 
-                      frameborder="0" 
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <p class="video-caption">
-              <span class="lang lang-en">YouTube embed</span>
-              <span class="lang lang-it">YouTube embed</span>
-              &nbsp;·
-              <a href="https://www.youtube.com/embed/0x3aRutVeQU?si=Lxkye3LLh-bTmIit" target="_blank" rel="noopener">
-                Open on YouTube
-              </a>
-            </p>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <!-- embed standard; se YouTube mostra Errore 153, il link sotto apre il video -->
-              <iframe width="560" 
-                height="315" 
-                src="https://www.youtube.com/embed/XvDZLjaCJuw?si=AjE3xTFVm9_Kxeu-" 
-                title="YouTube video player" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <p class="video-caption">
-              <span class="lang lang-en">YouTube embed</span>
-              <span class="lang lang-it">YouTube embed</span>
-              &nbsp;·
-              <a href="https://www.youtube.com/embed/XvDZLjaCJuw?si=AjE3xTFVm9_Kxeu-"  target="_blank" rel="noopener">
-                Open on YouTube
-              </a>
-            </p>
-          </article>
-
-          
-          <article class="video-card">
-            <div class="video-frame">
-              <!-- embed standard; se YouTube mostra Errore 153, il link sotto apre il video -->
-              <iframe width="560" 
-              height="315" 
-              src="https://www.youtube.com/embed/X6aDS_cYe-o?si=4S35xA4LzEVmvYf6" 
-              title="YouTube video player" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <p class="video-caption">
-              <span class="lang lang-en">YouTube embed</span>
-              <span class="lang lang-it">YouTube embed</span>
-              &nbsp;·
-              <a href="https://www.youtube.com/embed/X6aDS_cYe-o?si=4S35xA4LzEVmvYf6"  target="_blank" rel="noopener">
-                Open on YouTube
-              </a>
-            </p>
-          </article>
-          
-          <article class="video-card">
-            <div class="video-frame">
-              <!-- embed standard; se YouTube mostra Errore 153, il link sotto apre il video -->
-              <iframe width="560" 
-                      height="315" 
-                      src="https://www.youtube.com/embed/wV9CMVdY3dM?si=oI3ucz-icWttq74l" 
-                      title="YouTube video player" 
-                      frameborder="0" 
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                      referrerpolicy="strict-origin-when-cross-origin" 
-                      allowfullscreen></iframe>
-            </div>
-            <p class="video-caption">
-              <span class="lang lang-en">YouTube embed</span>
-              <span class="lang lang-it">YouTube embed</span>
-              &nbsp;·
-              <a href="https://www.youtube.com/embed/wV9CMVdY3dM?si=oI3ucz-icWttq74l"  target="_blank" rel="noopener">
-                Open on YouTube
-              </a>
-            </p>
-          </article>
-
+          <div class="scroller-nav">
+            <button class="icon-btn scroller-auto" id="scrollAuto" hidden>
+              <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <rect x="7" y="5" width="3.4" height="14" rx="1.2" />
+                <rect x="13.6" y="5" width="3.4" height="14" rx="1.2" />
+              </svg>
+              <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              <span class="sr-only sr-pause">
+                <span class="lang lang-en">Pause the automatic scrolling</span>
+                <span class="lang lang-it">Metti in pausa lo scorrimento automatico</span>
+              </span>
+              <span class="sr-only sr-play">
+                <span class="lang lang-en">Resume the automatic scrolling</span>
+                <span class="lang lang-it">Riprendi lo scorrimento automatico</span>
+              </span>
+            </button>
+            <button class="icon-btn" id="scrollPrev" aria-label="Previous videos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <button class="icon-btn" id="scrollNext" aria-label="Next videos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
+          </div>
         </div>
 
+        <div class="scroller-wrap reveal" style="--reveal-delay: .08s">
+          <div class="video-scroller" id="videoScroller" aria-label="Suggested YouTube videos">
+
+            <article class="video-card" data-video="-UiUcXBJ7pg"></article>
+            <article class="video-card" data-video="0x3aRutVeQU"></article>
+            <article class="video-card" data-video="XvDZLjaCJuw"></article>
+            <article class="video-card" data-video="X6aDS_cYe-o"></article>
+            <article class="video-card" data-video="wV9CMVdY3dM"></article>
+
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ONE PIECE -->
-    <section id="onepiece" class="section section--onepiece">
+    <section id="onepiece" class="section section--onepiece section--alt">
       <div class="section-inner">
-        <h2 class="section-title">
-          One Piece
-        </h2>
+        <div class="section-head reveal">
+          <div class="eyebrow">
+            <span class="lang lang-en">Side quest</span>
+            <span class="lang lang-it">Missione secondaria</span>
+          </div>
+          <h2 class="section-title">One Piece</h2>
+          <p class="section-sub">
+            <span class="lang lang-en">A small corner for the crew: tooling and notes around the manga.</span>
+            <span class="lang lang-it">Un piccolo angolo per la ciurma: strumenti e note sul manga.</span>
+          </p>
+        </div>
 
         <div class="cards-grid">
           <!-- Bot subsection -->
-          <article class="card">
+          <article class="card reveal">
             <div class="card-meta">TELEGRAM BOT</div>
             <h3 class="card-title lang lang-en">One Piece Chapter OUT Telegram bot</h3>
             <h3 class="card-title lang lang-it">Bot Telegram One Piece Chapter OUT</h3>
-            <br>
+
             <p class="card-body lang lang-en">
-              Telegram bot able to send a notification with
-              the link to the new chapter when it comes out
+              Never miss a release. The bot keeps an eye on new One Piece chapters
+              and, the moment one is out, sends you a Telegram message with the link
+              to read it. Start it once and forget about it.
             </p>
             <p class="card-body lang lang-it">
-              Bot Telegram il grado di inviare una notifica con il
-              link al nuovo capitolo quando esce.
+              Non perdere più un'uscita. Il bot tiene d'occhio i nuovi capitoli di
+              One Piece e, appena esce, ti manda un messaggio su Telegram con il link
+              per leggerlo. Lo avvii una volta e te ne dimentichi.
             </p>
 
             <div class="card-footer">
-                <span class="tag">Python</span>
-                <span class="tag">Telegram Bot API</span>
+              <span class="tag">Python</span>
+              <span class="tag">Telegram Bot API</span>
 
-                <a class="btn btn--ghost btn--tiny"
-                    href="https://t.me/OPChapterOUT_bot"
-                    target="_blank"
-                    rel="noopener">
-                    Visit bot
-                </a>
+              <a class="btn btn--ghost btn--tiny" href="https://t.me/OPChapterOUT_bot" target="_blank" rel="noopener">
+                Visit bot
+              </a>
             </div>
           </article>
 
           <!-- Personal theories subsection -->
-          <article class="card">
+          <article class="card reveal" style="--reveal-delay: .08s">
             <div class="card-meta">PERSONAL NOTES</div>
             <h3 class="card-title lang lang-en">One Piece personal theories</h3>
             <h3 class="card-title lang lang-it">Teorie personali su One Piece</h3>
 
+            <p class="card-body lang lang-en">
+              Theories, timelines and loose ends — currently being written down.
+            </p>
+            <p class="card-body lang lang-it">
+              Teorie, cronologie e fili in sospeso — attualmente in fase di scrittura.
+            </p>
+
             <div class="card-footer">
-              <span class="text-muted small">
+              <span class="tag">
                 <span class="lang lang-en">Coming soon</span>
                 <span class="lang lang-it">In arrivo</span>
               </span>
@@ -540,54 +641,65 @@
     <!-- PLAY ME -->
     <section id="playme" class="section section--play">
       <div class="section-inner play-layout">
-        <div>
+        <div class="reveal">
+          <div class="eyebrow">
+            <span class="lang lang-en">Off duty</span>
+            <span class="lang lang-it">Fuori servizio</span>
+          </div>
           <h2 class="section-title">
             <span class="lang lang-en">Play me</span>
             <span class="lang lang-it">Play me</span>
           </h2>
 
-          <p class="text-muted lang lang-en">
+          <p class="section-sub lang lang-en">
             If you like chess, challenge me to a game on Chess.com.
           </p>
-          <p class="text-muted lang lang-it">
-            Se ti piacciono gli scacchi, sfidami a una
-            partita su Chess.com.
+          <p class="section-sub lang lang-it">
+            Se ti piacciono gli scacchi, sfidami a una partita su Chess.com.
           </p>
-          <br>
-          <p class="lang lang-en">
-            Wanna play rapid?
-          </p>
-          <p class="lang lang-it">
-            Vuoi giocare rapid?
+
+          <p class="role" style="margin-top: 1.2rem">
+            <span class="lang lang-en">Wanna play rapid?</span>
+            <span class="lang lang-it">Vuoi giocare rapid?</span>
           </p>
         </div>
 
-        <aside class="card">
+        <aside class="card chess-card reveal" style="--reveal-delay: .1s">
           <div class="card-meta">CHESS.COM</div>
           <h3 class="card-title">
-            <!-- icona scacchi -->
-            <img src="./assets/icons/chess_icon.png" class="icon-img" alt="Chess icon" />
-            &nbsp;Profile
+            <img src="./assets/icons/chess_icon.png" class="icon-img" alt="" />
+            <span class="lang lang-en">Profile</span>
+            <span class="lang lang-it">Profilo</span>
           </h3>
           <p class="card-body">
-            <a href="https://www.chess.com/member/cepeppe" target="_blank" rel="noopener">
-              https://www.chess.com/member/cepeppe
-            </a>
+            <span class="lang lang-en">Send me a challenge, I usually accept.</span>
+            <span class="lang lang-it">Mandami una sfida, di solito accetto.</span>
           </p>
+          <div class="card-footer">
+            <a class="btn btn--primary btn--tiny" href="https://www.chess.com/member/cepeppe" target="_blank" rel="noopener">
+              chess.com/member/cepeppe
+            </a>
+          </div>
         </aside>
       </div>
     </section>
 
     <!-- CONTACTS -->
-    <section id="contacts" class="section section--contacts">
+    <section id="contacts" class="section section--contacts section--alt">
       <div class="section-inner">
-        <h2 class="section-title">
-          <span class="lang lang-en">Contacts</span>
-          <span class="lang lang-it">Contatti</span>
-        </h2>
+        <div class="section-head reveal">
+          <div class="eyebrow">
+            <span class="lang lang-en">Get in touch</span>
+            <span class="lang lang-it">Mettiamoci in contatto</span>
+          </div>
+          <h2 class="section-title">
+            <span class="lang lang-en">Contacts</span>
+            <span class="lang lang-it">Contatti</span>
+          </h2>
+        </div>
 
         <div class="cards-grid">
-          <article class="card">
+          <article class="card reveal">
             <h3 class="card-title lang lang-en">Direct contacts</h3>
             <h3 class="card-title lang lang-it">Contatti diretti</h3>
 
@@ -595,10 +707,19 @@
               <li>
                 <div class="contact-label">Email</div>
                 <div class="contact-value">
-                  <span class="contact-icon">✉️</span>
+                  <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2.5" y="4.5" width="19" height="15" rx="3" />
+                    <path d="m3.5 7 7.3 5.2a2 2 0 0 0 2.4 0L20.5 7" />
+                  </svg>
                   <a href="mailto:giuseppe.sorgentone.mail@gmail.com">
                     giuseppe.sorgentone.mail@gmail.com
                   </a>
+                  <button class="copy-btn" data-copy="giuseppe.sorgentone.mail@gmail.com" aria-label="Copy email address">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="9" y="9" width="12" height="12" rx="2.5" />
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                    </svg>
+                  </button>
                 </div>
               </li>
               <li>
@@ -607,20 +728,20 @@
                   <span class="lang lang-it">Sede</span>
                 </div>
                 <div class="contact-value">
-                  Bologna &amp; Roseto degli Abruzzi (TE), Italy 
+                  Bologna &amp; Roseto degli Abruzzi (TE), Italy
                 </div>
               </li>
             </ul>
           </article>
 
-          <article class="card">
+          <article class="card reveal" style="--reveal-delay: .08s">
             <h3 class="card-title">Links</h3>
 
             <ul class="contact-list">
               <li>
                 <div class="contact-label">GitHub</div>
                 <div class="contact-value">
-                  <img src="./assets/icons/github_icon.png" class="icon-img" alt="GitHub icon" />
+                  <img src="./assets/icons/github_icon.png" class="icon-img" alt="" />
                   <a href="https://github.com/Cepeppe" target="_blank" rel="noopener">
                     github.com/Cepeppe
                   </a>
@@ -629,9 +750,9 @@
               <li>
                 <div class="contact-label">LinkedIn</div>
                 <div class="contact-value">
-                  <img src="./assets/icons/linkedin_icon.png" class="icon-img" alt="LinkedIn icon" />
+                  <img src="./assets/icons/linkedin_icon.png" class="icon-img" alt="" />
                   <a href="https://www.linkedin.com/in/giuseppe-sorgentone-44320722b/" target="_blank" rel="noopener">
-                    linkedin.com/in/giuseppe-sorgentone-44320722b
+                    linkedin.com/in/giuseppe-sorgentone
                   </a>
                 </div>
               </li>
@@ -642,7 +763,8 @@
                 </div>
                 <div class="contact-value">
                   <a href="./assets/CV_Giuseppe_Sorgentone.pdf" target="_blank" rel="noopener">
-                    Download CV (PDF)
+                    <span class="lang lang-en">Download CV (PDF)</span>
+                    <span class="lang lang-it">Scarica il CV (PDF)</span>
                   </a>
                 </div>
               </li>
@@ -654,10 +776,24 @@
   </main>
 
   <footer>
-    <small>
-      © <span id="year"></span> Giuseppe Sorgentone
-    </small>
+    <div class="footer-inner">
+      <small>© <span id="year"></span> Giuseppe Sorgentone</small>
+      <div class="footer-links">
+        <a class="link-underline" href="https://github.com/Cepeppe" target="_blank" rel="noopener">GitHub</a>
+        <a class="link-underline" href="https://www.linkedin.com/in/giuseppe-sorgentone-44320722b/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="link-underline" href="mailto:giuseppe.sorgentone.mail@gmail.com">Email</a>
+        <a class="link-underline" href="./assets/CV_Giuseppe_Sorgentone.pdf" target="_blank" rel="noopener">CV</a>
+      </div>
+    </div>
   </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="script.js"></script>
 </body>
