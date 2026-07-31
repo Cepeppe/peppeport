@@ -59,7 +59,7 @@
   </a>
 
   <header class="top-bar" id="topBar">
-    <button class="logo-area" data-section="about" aria-label="Giuseppe Sorgentone — back to top">
+    <button class="logo-area" data-section="about" aria-label="Giuseppe Sorgentone - back to top">
       <span class="logo-mark" aria-hidden="true">GS</span>
       <span class="logo-text">
         <span class="logo-name">Giuseppe Sorgentone</span>
@@ -330,8 +330,8 @@
             <span class="lang lang-it">Progetti</span>
           </h2>
           <p class="section-sub">
-            <span class="lang lang-en">Side projects around systems programming, data and integrations. Filter by technology.</span>
-            <span class="lang lang-it">Progetti personali tra systems programming, dati e integrazioni. Filtra per tecnologia.</span>
+            <span class="lang lang-en">Things I built to understand how they work from the inside - emulators, data structures, storage engines, API clients. Filter by technology.</span>
+            <span class="lang lang-it">Cose che ho costruito per capirle da dentro - emulatori, strutture dati, motori di storage, client API. Filtra per tecnologia.</span>
           </p>
         </div>
 
@@ -350,157 +350,289 @@
 
           <!-- emulators -->
           <article class="card reveal" data-tech="go">
-            <div class="card-meta">SYSTEM EMULATORS</div>
-            <h3 class="card-title">Emulators</h3>
+            <div class="card-head">
+              <span class="card-icon" aria-hidden="true">
+                <img src="./assets/icons/go_icon.png" alt="" loading="lazy" />
+              </span>
+              <div class="card-headings">
+                <div class="card-meta">EMULATOR · GO</div>
+                <h3 class="card-title">CHIP-8 Emulator</h3>
+              </div>
+            </div>
 
             <p class="card-body lang lang-en">
-              Emulators of legacy architectures.<br>
-              Emulated architectures: chip-8 (Go)
+              A CHIP-8 emulator written from scratch in Go, faithful enough to the original
+              machine that games written for it in the late seventies still run: Pong, Tetris,
+              Space Invaders.
             </p>
             <p class="card-body lang lang-it">
-              Emulatori di architetture legacy.<br>
-              Architetture emulate: chip-8 (Go)
+              Un emulatore CHIP-8 scritto da zero in Go, abbastanza fedele alla macchina
+              originale da far girare ancora i giochi scritti per lei negli anni Settanta:
+              Pong, Tetris, Space Invaders.
             </p>
+
+            <ul class="card-points lang lang-en">
+              <li>All <strong>34 instructions</strong> of the original machine</li>
+              <li>Screen, sound and controls rebuilt from nothing</li>
+              <li>A debugger in the terminal to watch memory change</li>
+            </ul>
+            <ul class="card-points lang lang-it">
+              <li>Tutte le <strong>34 istruzioni</strong> della macchina originale</li>
+              <li>Schermo, suono e comandi ricostruiti da zero</li>
+              <li>Un debugger nel terminale per seguire la memoria</li>
+            </ul>
 
             <div class="card-footer">
               <span class="tag">Go</span>
-              <span class="tag">System architectures</span>
-              <a class="btn btn--ghost btn--tiny" href="https://github.com/Cepeppe/emulators" target="_blank" rel="noopener">
-                GitHub repo
-              </a>
+              <span class="tag">Ebiten</span>
+              <span class="tag">Emulation</span>
+              <div class="card-actions">
+                <a class="btn btn--ghost btn--tiny" href="https://github.com/Cepeppe/emulators" target="_blank" rel="noopener">
+                  <img src="./assets/icons/github_icon.png" class="icon-img" alt="" loading="lazy" />
+                  <span>GitHub</span>
+                </a>
+              </div>
             </div>
           </article>
 
           <!-- apca-rest-client -->
           <article class="card reveal" data-tech="java" style="--reveal-delay: .06s">
-            <div class="card-meta">JAVA · API CLIENT</div>
-            <h3 class="card-title">Alpaca REST Client</h3>
+            <div class="card-head">
+              <span class="card-icon" aria-hidden="true">
+                <img src="./assets/icons/java_icon.png" alt="" loading="lazy" />
+              </span>
+              <div class="card-headings">
+                <div class="card-meta">API CLIENT · JAVA</div>
+                <h3 class="card-title">Alpaca REST Client</h3>
+              </div>
+            </div>
 
             <p class="card-body lang lang-en">
-              Unofficial Java client for the Alpaca REST APIs (Trading, Market Data, Broker).
-              Focused on a clean object model, type-safe requests and an extensible design for
-              algorithmic trading integrations.
+              A Java library for trading on Alpaca - orders, positions, account, watchlists -
+              that wraps the broker's REST API so an application never has to call it directly.
             </p>
             <p class="card-body lang lang-it">
-              Client Java non ufficiale per le API REST di Alpaca (Trading, Market Data, Broker),
-              con modello a oggetti pulito e design estendibile per integrazioni di trading
-              algoritmico.
+              Una libreria Java per operare su Alpaca - ordini, posizioni, conto, watchlist -
+              che incapsula le API REST del broker, così l'applicazione non deve mai chiamarle
+              direttamente.
             </p>
+
+            <ul class="card-points lang lang-en">
+              <li>Knows what is safe to resend, and what would risk a <strong>duplicate order</strong></li>
+              <li>Tracks how many requests the broker still allows, and slows down in time</li>
+              <li>Handles the same API returning dates in three different formats</li>
+            </ul>
+            <ul class="card-points lang lang-it">
+              <li>Sa cosa si può reinviare e cosa rischierebbe un <strong>ordine doppio</strong></li>
+              <li>Tiene il conto delle richieste ancora concesse dal broker e rallenta in tempo</li>
+              <li>Gestisce la stessa API che restituisce le date in tre formati diversi</li>
+            </ul>
 
             <div class="card-footer">
               <span class="tag">Java</span>
               <span class="tag">REST</span>
-              <a class="btn btn--ghost btn--tiny" href="https://github.com/Cepeppe/apca-rest-client" target="_blank" rel="noopener">
-                GitHub repo
-              </a>
+              <span class="tag">Async</span>
+              <div class="card-actions">
+                <a class="btn btn--ghost btn--tiny" href="https://github.com/Cepeppe/apca-rest-client" target="_blank" rel="noopener">
+                  <img src="./assets/icons/github_icon.png" class="icon-img" alt="" loading="lazy" />
+                  <span>GitHub</span>
+                </a>
+              </div>
             </div>
           </article>
 
           <!-- one piece bot -->
           <article class="card reveal" data-tech="python" style="--reveal-delay: .12s">
-            <div class="card-meta">TELEGRAM BOT</div>
-            <h3 class="card-title">One Piece ChapterOut Telegram bot</h3>
+            <div class="card-head">
+              <span class="card-icon" aria-hidden="true">
+                <img src="./assets/icons/python_icon.png" alt="" loading="lazy" />
+              </span>
+              <div class="card-headings">
+                <div class="card-meta">TELEGRAM BOT · PYTHON</div>
+                <h3 class="card-title">One Piece Chapter OUT</h3>
+              </div>
+            </div>
 
             <p class="card-body lang lang-en">
-              Telegram bot that sends a notification with the link to the new One Piece
-              chapter as soon as it is released. This portfolio has a dedicated
-              <strong>One Piece</strong> section with more details.
+              A Telegram bot that announces new One Piece chapters. The release banner only
+              exists once the page has rendered, so the bot loads it in a real browser, takes a
+              screenshot and reads the announcement with OCR.
             </p>
             <p class="card-body lang lang-it">
-              Bot Telegram che invia una notifica con il link al nuovo capitolo di One Piece
-              non appena esce. In questo portfolio trovi una sezione dedicata
-              <strong>One Piece</strong> con maggiori dettagli.
+              Un bot Telegram che annuncia l'uscita dei nuovi capitoli di One Piece. Il banner
+              esiste solo dopo che la pagina è stata renderizzata, quindi il bot la carica in un
+              browser vero, ne fa uno screenshot e legge l'annuncio con l'OCR.
             </p>
+
+            <ul class="card-points lang lang-en">
+              <li>Checks more often during the window when chapters usually appear</li>
+              <li>The first check of the week does the work; the rest are served from it</li>
+              <li>Tracks what it has already sent, so <strong>no duplicates and no gaps</strong></li>
+            </ul>
+            <ul class="card-points lang lang-it">
+              <li>Controlla più spesso nella finestra in cui di solito escono i capitoli</li>
+              <li>Il primo controllo della settimana fa il lavoro, gli altri sono serviti da quello</li>
+              <li>Tiene traccia di cosa ha già inviato: <strong>niente doppioni né buchi</strong></li>
+            </ul>
 
             <div class="card-footer">
               <span class="tag">Python</span>
               <span class="tag">Telegram Bot API</span>
+              <span class="tag">Playwright</span>
 
-              <a class="btn btn--ghost btn--tiny" href="https://t.me/OPChapterOUT_bot" target="_blank" rel="noopener">
-                Visit bot
-              </a>
+              <div class="card-actions">
+                <a class="btn btn--ghost btn--tiny" href="https://t.me/OPChapterOUT_bot" target="_blank" rel="noopener">
+                  <span class="lang lang-en">Try the bot</span>
+                  <span class="lang lang-it">Prova il bot</span>
+                </a>
 
-              <button class="btn btn--ghost btn--tiny" data-section="onepiece">
-                <span class="lang lang-en">One Piece section</span>
-                <span class="lang lang-it">Sezione One Piece</span>
-              </button>
+                <button class="btn btn--ghost btn--tiny" data-section="onepiece">
+                  <span class="lang lang-en">More</span>
+                  <span class="lang lang-it">Dettagli</span>
+                </button>
+              </div>
             </div>
           </article>
 
           <!-- c-lib -->
           <article class="card reveal" data-tech="c" style="--reveal-delay: .18s">
-            <div class="card-meta">LIBRARY · C</div>
-            <h3 class="card-title">c-lib</h3>
+            <div class="card-head">
+              <span class="card-icon" aria-hidden="true">
+                <img src="./assets/icons/c_icon.png" alt="" loading="lazy" />
+              </span>
+              <div class="card-headings">
+                <div class="card-meta">LIBRARY · C</div>
+                <h3 class="card-title">c-lib</h3>
+              </div>
+            </div>
 
             <p class="card-body lang lang-en">
-              C library implementing classic data structures: linked lists,
-              hashmaps, binary search trees, matrices and common operations. Includes small
-              demos and tests.
+              A library of the data structures C does not give you: linked lists, hash maps,
+              binary search trees and matrices, generic over the data they hold.
             </p>
             <p class="card-body lang lang-it">
-              Libreria C che implementa strutture dati classiche: liste collegate,
-              hashmap, alberi binari di ricerca, matrici e relative operazioni. Include piccoli
-              esempi e test.
+              Una libreria delle strutture dati che il C non ti dà: liste concatenate, hash map,
+              alberi binari di ricerca e matrici, generiche rispetto ai dati che contengono.
             </p>
+
+            <ul class="card-points lang lang-en">
+              <li>One matrix multiply for any numeric type, instead of one per type</li>
+              <li>Every module <strong>states who owns</strong> the memory and who frees it</li>
+              <li>Tests count every allocation, so a leak becomes a failing test</li>
+            </ul>
+            <ul class="card-points lang lang-it">
+              <li>Una sola moltiplicazione di matrici per qualsiasi tipo numerico</li>
+              <li>Ogni modulo <strong>dichiara di chi è</strong> la memoria e chi deve liberarla</li>
+              <li>I test contano le allocazioni: una perdita diventa un test che fallisce</li>
+            </ul>
 
             <div class="card-footer">
               <span class="tag">C</span>
               <span class="tag">Data structures</span>
-              <a class="btn btn--ghost btn--tiny" href="https://github.com/Cepeppe/c-lib" target="_blank" rel="noopener">
-                GitHub repo
-              </a>
+              <span class="tag">Memory management</span>
+              <div class="card-actions">
+                <a class="btn btn--ghost btn--tiny" href="https://github.com/Cepeppe/c-lib" target="_blank" rel="noopener">
+                  <img src="./assets/icons/github_icon.png" class="icon-img" alt="" loading="lazy" />
+                  <span>GitHub</span>
+                </a>
+              </div>
             </div>
           </article>
 
           <!-- redis-go-clone -->
           <article class="card reveal" data-tech="go" style="--reveal-delay: .24s">
-            <div class="card-meta">GO · SYSTEMS</div>
-            <h3 class="card-title">Redis Go Clone</h3>
+            <div class="card-head">
+              <span class="card-icon" aria-hidden="true">
+                <img src="./assets/icons/redis_icon.png" alt="" loading="lazy" />
+              </span>
+              <div class="card-headings">
+                <div class="card-meta">KEY–VALUE STORE · GO</div>
+                <h3 class="card-title">Redis Go Clone</h3>
+              </div>
+            </div>
 
             <p class="card-body lang lang-en">
-              Minimal Redis-style in-memory key–value store written in Go, with a small TCP
-              server and CLI client. Supports a subset of Redis commands and a simple text
-              protocol to explore client/server design.
+              An in-memory key–value store rebuilt from scratch in Go - the kind of database the
+              web runs on for sessions, counters and caches - with a command-line client and
+              nothing but the standard library.
             </p>
             <p class="card-body lang lang-it">
-              Clone minimale in Go di un key–value store in-memory stile Redis, con un piccolo
-              server TCP e client a riga di comando. Supporta un sottoinsieme di comandi Redis
-              e un semplice protocollo testuale, utile per esplorare il design client/server.
+              Un key–value store in memoria ricostruito da zero in Go - il tipo di database su
+              cui il web si appoggia per sessioni, contatori e cache - con un client a riga di
+              comando e nient'altro che la libreria standard.
             </p>
+
+            <ul class="card-points lang lang-en">
+              <li>Keys can be given an expiry date and <strong>disappear on their own</strong></li>
+              <li>Saves to disk every few seconds, so a restart loses almost nothing</li>
+              <li>Takes a whole JSON document as a single value</li>
+            </ul>
+            <ul class="card-points lang lang-it">
+              <li>Alle chiavi si può dare una scadenza: poi <strong>spariscono da sole</strong></li>
+              <li>Salva su disco ogni pochi secondi, così un riavvio non perde quasi nulla</li>
+              <li>Accetta un intero documento JSON come singolo valore</li>
+            </ul>
 
             <div class="card-footer">
               <span class="tag">Go</span>
-              <span class="tag">Key–value store</span>
-              <a class="btn btn--ghost btn--tiny" href="https://github.com/Cepeppe/redis-go-clone" target="_blank" rel="noopener">
-                GitHub repo
-              </a>
+              <span class="tag">Concurrency</span>
+              <span class="tag">Persistence</span>
+              <div class="card-actions">
+                <a class="btn btn--ghost btn--tiny" href="https://github.com/Cepeppe/redis-go-clone" target="_blank" rel="noopener">
+                  <img src="./assets/icons/github_icon.png" class="icon-img" alt="" loading="lazy" />
+                  <span>GitHub</span>
+                </a>
+              </div>
             </div>
           </article>
 
           <!-- criminal-geoprofiler -->
           <article class="card reveal" data-tech="js" style="--reveal-delay: .3s">
-            <div class="card-meta">WEBAPP · GEOANALYSIS</div>
-            <h3 class="card-title">Criminal Geoprofiler</h3>
+            <div class="card-head">
+              <span class="card-icon" aria-hidden="true">
+                <img src="./assets/icons/js_icon.png" alt="" loading="lazy" />
+              </span>
+              <div class="card-headings">
+                <div class="card-meta">WEB APP · GEOSPATIAL</div>
+                <h3 class="card-title">Criminal Geoprofiler</h3>
+              </div>
+            </div>
 
             <p class="card-body lang lang-en">
-              100% client-side web app to experiment with criminal geoprofiling techniques on
-              an interactive map. Lets you place events and compute likelihood surfaces with
-              methods like Rossmo/CGT, Gaussian KDE, Mean Center and Journey-to-crime, then
-              visualise them as heatmaps.
+              Geographic profiling estimates where an offender is likely to be based from the
+              locations of the crimes. This tool puts four published methods on the same map.
             </p>
             <p class="card-body lang lang-it">
-              WebApp completamente client-side per sperimentare tecniche di geoprofilazione
-              criminale su mappa interattiva. Permette di inserire eventi e calcolare superfici
-              di verosimiglianza con metodi come Rossmo/CGT, KDE gaussiana, centro di gravità
-              e Journey-to-crime, visualizzandole come heatmap.
+              La geoprofilazione criminale stima dove sia probabilmente basato l'autore dei
+              reati a partire dai luoghi dei delitti. Questo strumento mette quattro metodi
+              pubblicati sulla stessa mappa.
             </p>
 
+            <ul class="card-points lang lang-en">
+              <li><strong>Four methods</strong> on the same data, to see where they disagree</li>
+              <li>Comes loaded with the Monster of Florence case as an example</li>
+              <li>Runs entirely in the browser, nothing to install</li>
+            </ul>
+            <ul class="card-points lang lang-it">
+              <li><strong>Quattro metodi</strong> sugli stessi dati, per vedere dove si separano</li>
+              <li>Arriva con il caso del Mostro di Firenze come esempio</li>
+              <li>Gira interamente nel browser, niente da installare</li>
+            </ul>
+
             <div class="card-footer">
-              <span class="tag">Geo</span>
               <span class="tag">JavaScript</span>
-              <a class="btn btn--ghost btn--tiny" href="https://github.com/Cepeppe/criminal-geoprofiler" target="_blank" rel="noopener">
-                GitHub repo
-              </a>
+              <span class="tag">Leaflet</span>
+              <span class="tag">Geospatial</span>
+              <div class="card-actions">
+                <a class="btn btn--ghost btn--tiny" href="https://github.com/Cepeppe/criminal-geoprofiler" target="_blank" rel="noopener">
+                  <img src="./assets/icons/github_icon.png" class="icon-img" alt="" loading="lazy" />
+                  <span>GitHub</span>
+                </a>
+                <a class="btn btn--primary btn--tiny" href="https://cepeppe.github.io/criminal-geoprofiler/" target="_blank" rel="noopener">
+                  <span class="lang lang-en">Live demo</span>
+                  <span class="lang lang-it">Demo live</span>
+                </a>
+              </div>
             </div>
           </article>
         </div>
@@ -589,42 +721,88 @@
         <div class="cards-grid">
           <!-- Bot subsection -->
           <article class="card reveal">
-            <div class="card-meta">TELEGRAM BOT</div>
-            <h3 class="card-title lang lang-en">One Piece Chapter OUT Telegram bot</h3>
-            <h3 class="card-title lang lang-it">Bot Telegram One Piece Chapter OUT</h3>
+            <div class="card-head">
+              <span class="card-icon" aria-hidden="true">
+                <img src="./assets/icons/python_icon.png" alt="" loading="lazy" />
+              </span>
+              <div class="card-headings">
+                <div class="card-meta">TELEGRAM BOT</div>
+                <h3 class="card-title lang lang-en">One Piece Chapter OUT</h3>
+                <h3 class="card-title lang lang-it">One Piece Chapter OUT</h3>
+              </div>
+            </div>
 
             <p class="card-body lang lang-en">
-              Never miss a release. The bot keeps an eye on new One Piece chapters
-              and, the moment one is out, sends you a Telegram message with the link
-              to read it. Start it once and forget about it.
+              Never miss a release again. Subscribe once and the bot writes to you on Telegram
+              as soon as a new chapter is out, with the link to go and read it. Nothing to
+              install, no account to create, no site to keep refreshing - it just arrives.
             </p>
             <p class="card-body lang lang-it">
-              Non perdere più un'uscita. Il bot tiene d'occhio i nuovi capitoli di
-              One Piece e, appena esce, ti manda un messaggio su Telegram con il link
-              per leggerlo. Lo avvii una volta e te ne dimentichi.
+              Non perdere più un'uscita. Ti iscrivi una volta e il bot ti scrive su Telegram
+              appena esce un nuovo capitolo, con il link per andarlo a leggere. Niente da
+              installare, nessun account da creare, nessun sito da ricaricare in continuazione:
+              arriva e basta.
             </p>
+
+            <p class="card-body lang lang-en">
+              It looks more often in the hours a chapter usually drops, so the message normally
+              lands within minutes of the release.
+            </p>
+            <p class="card-body lang lang-it">
+              Controlla più spesso nelle ore in cui di solito escono i capitoli, così il
+              messaggio arriva quasi sempre a pochi minuti dall'uscita.
+            </p>
+
+            <ul class="card-points lang lang-en">
+              <li>Free, and one command to start or stop it</li>
+              <li>Lives inside Telegram, where you already are</li>
+              <li>One message per chapter - no spam, no duplicates</li>
+            </ul>
+            <ul class="card-points lang lang-it">
+              <li>Gratis, e basta un comando per attivarlo o fermarlo</li>
+              <li>Vive dentro Telegram, dove sei già</li>
+              <li>Un messaggio per capitolo - niente spam, niente doppioni</li>
+            </ul>
 
             <div class="card-footer">
               <span class="tag">Python</span>
               <span class="tag">Telegram Bot API</span>
+              <span class="tag">Playwright</span>
+              <span class="tag">Tesseract OCR</span>
+              <span class="tag">SQLite</span>
 
-              <a class="btn btn--ghost btn--tiny" href="https://t.me/OPChapterOUT_bot" target="_blank" rel="noopener">
-                Visit bot
-              </a>
+              <div class="card-actions">
+                <a class="btn btn--primary btn--tiny" href="https://t.me/OPChapterOUT_bot" target="_blank" rel="noopener">
+                  <span class="lang lang-en">Try the bot</span>
+                  <span class="lang lang-it">Prova il bot</span>
+                </a>
+              </div>
             </div>
           </article>
 
           <!-- Personal theories subsection -->
           <article class="card reveal" style="--reveal-delay: .08s">
-            <div class="card-meta">PERSONAL NOTES</div>
-            <h3 class="card-title lang lang-en">One Piece personal theories</h3>
-            <h3 class="card-title lang lang-it">Teorie personali su One Piece</h3>
+            <div class="card-head">
+              <span class="card-icon card-icon--soft" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5z" />
+                  <path d="M8 7.5h7M8 11h5" />
+                </svg>
+              </span>
+              <div class="card-headings">
+                <div class="card-meta">PERSONAL NOTES</div>
+                <h3 class="card-title lang lang-en">Personal theories</h3>
+                <h3 class="card-title lang lang-it">Teorie personali</h3>
+              </div>
+            </div>
 
             <p class="card-body lang lang-en">
-              Theories, timelines and loose ends — currently being written down.
+              Notes I take while rereading: theories, loose ends, things that only click the
+              second time around. Slowly turning into something worth putting here.
             </p>
             <p class="card-body lang lang-it">
-              Teorie, cronologie e fili in sospeso — attualmente in fase di scrittura.
+              Appunti che prendo rileggendo: teorie, fili lasciati in sospeso, cose che tornano
+              solo alla seconda lettura. Piano piano diventeranno qualcosa da mettere qui.
             </p>
 
             <div class="card-footer">
@@ -728,7 +906,7 @@
                   <span class="lang lang-it">Sede</span>
                 </div>
                 <div class="contact-value">
-                  Bologna &amp; Roseto degli Abruzzi (TE), Italy
+                  Bologna, Italy
                 </div>
               </li>
             </ul>

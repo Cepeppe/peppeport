@@ -1,5 +1,5 @@
 /* =====================================================================
-   Giuseppe Sorgentone — Portfolio
+   Giuseppe Sorgentone - Portfolio
    Navigation, theming, i18n, scroll effects and micro-interactions.
    ===================================================================== */
 
@@ -98,8 +98,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const langThumb = $("#langThumb");
 
   const COPY = {
-    en: { copied: "Email copied to clipboard", copyFail: "Could not copy — select it manually" },
-    it: { copied: "Email copiata negli appunti", copyFail: "Copia non riuscita — selezionala a mano" },
+    en: { copied: "Email copied to clipboard", copyFail: "Could not copy - select it manually" },
+    it: { copied: "Email copiata negli appunti", copyFail: "Copia non riuscita - selezionala a mano" },
   };
 
   function moveLangThumb() {
@@ -468,7 +468,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtn = $("#scrollNext");
     const autoBtn = $("#scrollAuto");
 
-    const AUTO_SPEED = 32; // px per second — a slow drift, not a slideshow
+    const AUTO_SPEED = 32; // px per second - a slow drift, not a slideshow
     const RESUME_AFTER = 5000; // ms of quiet before the drift takes over again
 
     const step = () => Math.max(scroller.clientWidth * 0.8, 280);

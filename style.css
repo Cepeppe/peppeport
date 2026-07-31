@@ -1,5 +1,5 @@
 /* =====================================================================
-   Giuseppe Sorgentone — Portfolio
+   Giuseppe Sorgentone - Portfolio
    Design system: tokens → base → layout → components → motion → responsive
    ===================================================================== */
 
@@ -719,7 +719,7 @@ main {
   box-shadow: var(--shadow-sm);
 }
 
-/* local time, filled in by JS — stays hidden if Intl is unavailable */
+/* local time, filled in by JS - stays hidden if Intl is unavailable */
 .status-clock {
   display: inline-flex;
   align-items: center;
@@ -1220,6 +1220,12 @@ html[data-theme="dark"] .skill-chip .chip-icon--invert-dark {
   grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
 }
 
+/* Only two cards here and they are very different in length; stretching the
+   short one to match leaves it three quarters empty. */
+.section--onepiece .cards-grid {
+  align-items: start;
+}
+
 .card {
   position: relative;
   display: flex;
@@ -1229,7 +1235,7 @@ html[data-theme="dark"] .skill-chip .chip-icon--invert-dark {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1.35rem;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-md);
   overflow: hidden;
@@ -1310,9 +1316,97 @@ html[data-theme="dark"] .skill-chip .chip-icon--invert-dark {
   color: var(--text-soft);
 }
 
+.card-body + .card-body {
+  margin-top: 0.7rem;
+}
+
+/* icon + label + title block at the top of a card */
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-headings {
+  min-width: 0;
+}
+
+.card-head .card-meta,
+.card-head .card-title {
+  margin: 0;
+}
+
+.card-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  transition: border-color 0.35s ease, transform 0.35s var(--ease-spring);
+}
+
+.card:hover .card-icon {
+  border-color: var(--accent-ring);
+  transform: translateY(-2px);
+}
+
+.card-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* for cards without a tech logo: draw the glyph in the accent colour */
+.card-icon--soft {
+  color: var(--accent);
+}
+
+.card-icon--soft svg {
+  width: 21px;
+  height: 21px;
+}
+
+/* short list of concrete technical highlights */
+.card-points {
+  margin: 0.8rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.card-points li {
+  position: relative;
+  padding-left: 1.15rem;
+  font-size: 0.845rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.card-points li::before {
+  content: "";
+  position: absolute;
+  left: 0.1rem;
+  /* 0.6em tracks the font size, so the dot stays centred on the first line */
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
+.card-points strong {
+  color: var(--text-soft);
+  font-weight: 600;
+}
+
 .card-footer {
   margin-top: auto;
-  padding-top: 1.1rem;
+  padding-top: 0.9rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
@@ -1339,6 +1433,23 @@ html[data-theme="dark"] .skill-chip .chip-icon--invert-dark {
 }
 
 .card-footer .btn + .btn {
+  margin-left: 0;
+}
+
+/* Actions get their own row, flush right. Tag lists differ in length from card
+   to card, so leaving the buttons inline makes them land at different heights
+   across a grid row. */
+.card-actions {
+  flex: 1 0 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.45rem;
+  margin-top: 0.3rem;
+}
+
+.card-actions .btn {
   margin-left: 0;
 }
 
